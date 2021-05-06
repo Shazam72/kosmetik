@@ -1,0 +1,38 @@
+@import url(/css/root.css);
+header .inner-header #search-bar-input {
+  border-radius: 999px;
+  border: 2px solid #ef0393;
+  background: #f1f1f1;
+  width: 280px;
+  outline: none;
+}
+header .inner-header #search-bar-input::placeholder {
+  opacity: 0.6;
+  font-style: italic;
+  font-family: "Segoe Print", sans-serif;
+  font-size: 0.8em;
+}
+header .inner-header .fa-search {
+  color: #ef0393;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+footer .inner-footer .social-link {
+  color: gray;
+}
+footer .inner-footer .social-link:hover {
+  color: gray;
+}
+footer .inner-footer .social-link .fa-facebook {
+  color: #4267B2;
+}
+footer .inner-footer .social-link .fa-twitter {
+  color: #1DA1F2;
+}
+footer .inner-footer .social-link .fa-instagram {
+  color: #8a3ab9;
+}
+
+/*# sourceMappingURL=layout.css.map */

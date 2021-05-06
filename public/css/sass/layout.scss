@@ -1,0 +1,56 @@
+@import url(/css/root.css);
+
+$main-color:#ef0393;
+
+header .inner-header{
+    #search-bar-input{
+        border-radius: 999px;
+        border: 2px solid $main-color;
+        background: #f1f1f1;
+        width: 280px;
+        outline: none;
+
+        &::placeholder{
+            opacity: .6;
+            font-style: italic;
+            font-family: 'Segoe Print',sans-serif;
+            font-size: .8em;
+        }
+    }
+
+    .fa-search{
+        color: $main-color;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+}
+
+
+footer .inner-footer{
+    .social-link{
+        color: gray;
+        &:hover{
+            color: gray;
+        }
+
+        .fa-facebook{
+            color: #4267B2;
+            // &:hover{
+                // color: darken($color: #000000, $amount: 0);
+            // }
+        }
+        .fa-twitter{
+            color: #1DA1F2;
+            // &:hover{
+                // color: darken($color: #000000, $amount: 0);
+            // }
+        }
+        .fa-instagram{
+            color: #8a3ab9;
+            // &:hover{
+                // color: darken($color: #000000, $amount: 0);
+            // }
+        }
+    }
+}

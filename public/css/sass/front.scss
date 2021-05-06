@@ -1,0 +1,121 @@
+#inner-main-section {
+    .banner .inner-banner {
+      height: 50rem;
+  
+      .images img {
+        transform: translateY(20%);
+        width: calc(60%);
+        position: absolute;
+        box-shadow: 8px -5px 15px rgba(0, 0, 0, 0.247);
+  
+        &:first-of-type {
+          left: 5rem;
+          bottom: 10rem;
+        }
+        &:last-of-type {
+          top: 0;
+          right: 0;
+        }
+      }
+  
+      .text h2 {
+        z-index: 2;
+        transform: translateY(-35%);
+        &:first-of-type {
+          font-size: 3.5rem;
+        }
+      }
+      .text h2 .logo-title {
+        font-family: "Segoe Print";
+        font-weight: bolder;
+      }
+    }
+    .categories {
+      border-radius: 5px;
+  
+      h3 {
+        font-size: 2.4rem;
+      }
+    }
+    .detail {
+      width: 70%;
+  
+      .img img {
+        width: 27rem;
+        height: auto;
+      }
+    }
+    .inner-news {
+      .img {
+        overflow: hidden;
+        img {
+          width: 30rem;
+          height: auto;
+        }
+      }
+    }
+    .products {
+      .product {
+        .img img {
+          outline-offset: 0.4rem;
+          width: 23rem;
+          height: auto;
+  
+          &:hover {
+            outline: rgb(116, 116, 15) solid 0.5rem;
+          }
+        }
+      }
+    }
+    .results {
+      .result {
+        &:not(:last-of-type) {
+          border-bottom: 2px solid rgba(0, 0, 0, 0.356);
+        }
+  
+        a {
+          color: black;
+          img {
+            width: 12rem;
+            height: auto;
+          }
+        }
+      }
+    }
+  
+    .card-cat {
+      height: 25rem;
+      width: 20rem;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.212);
+      border-radius: 2rem;
+  
+      &:hover {
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.473);
+      }
+    }
+  }
+  @media screen and (max-width: 850px) {
+    .detail {
+      width: 100%;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1100px) {
+    #inner-main-section {
+      .banner .inner-banner .images img {
+        //  width: calc(70%);
+  
+        &:first-of-type {
+          left: 5rem;
+          bottom: 10rem;
+        }
+        &:last-of-type {
+          top: 10rem;
+          right: 0;
+        }
+      }
+      .text h2 {
+        transform: translateY(-100%);
+      }
+    }
+  }
+  

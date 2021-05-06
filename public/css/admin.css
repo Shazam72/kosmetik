@@ -1,0 +1,47 @@
+@import url(/css/root.css);
+@import url(/css/sidebar.css);
+section.login {
+  width: 100vw;
+  height: 60vh;
+}
+section.login form {
+  border-radius: 2rem;
+}
+
+.all-products .cat .fa-angle-down {
+  top: 0.4rem;
+}
+.all-products .cat .product img {
+  width: 10rem;
+  height: auto;
+}
+.all-products .cat .product a {
+  bottom: -3rem;
+  right: 1rem;
+}
+
+.add-product button {
+  left: -5rem;
+  border-radius: 999px;
+}
+.add-product button .fas {
+  background: #0d62Fd;
+  top: -1rem;
+  left: 0;
+}
+
+#cat-options .categories .modal-btns {
+  top: 0;
+  right: 0;
+}
+#cat-options .categories button.adding-btn-field {
+  border-radius: 999px;
+  width: 15rem;
+}
+#cat-options .categories button.adding-btn-field .fas {
+  background: #0d62Fd;
+  top: -1rem;
+  left: 0;
+}
+
+/*# sourceMappingURL=admin.css.map */

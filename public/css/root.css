@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/css/fonts/Poppins Regular.ttf");
+  font-family: "Segoe Print";
+  src: url("/css/fonts/Segoe Print Bold.ttf");
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background: #e1e1e1;
+  font-family: "Poppins", sans-serif;
+}
+
+.colored-link {
+  color: #ef0393;
+}
+.colored-link:hover {
+  color: #ef0393;
+}
+
+.border-down-colored {
+  position: relative;
+}
+.border-down-colored::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  background: #ef0393;
+  height: 0.2rem;
+  transform: scale(0);
+  transition: transform 0.4s ease-in-out;
+}
+.border-down-colored.active::after, .border-down-colored:hover::after {
+  transform: scale(1);
+}
+
+.text-segoe {
+  font-family: "Segoe Print";
+}
+
+.bg-colored {
+  background: #ef0393;
+}
+
+.list-style-type-none {
+  list-style-type: none;
+}
+
+.colored {
+  color: #ef0393;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.outline-none {
+  outline: none;
+}
+
+/*# sourceMappingURL=root.css.map */

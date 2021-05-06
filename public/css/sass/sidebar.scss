@@ -1,0 +1,92 @@
+$main-color: #ef0393;
+
+
+#sidebar-menu{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -100;
+    transition: all .8s cubic-bezier(0.68,-0.55,0.265,1.55);
+    
+    nav{
+        opacity: 0;
+        a{
+            color: white;
+        }
+        li:hover,li.active{
+            color: $main-color;
+            background: white;
+
+            a{
+                color: $main-color;
+            }
+        }
+    }
+
+}
+.spread-bg {
+    z-index: 29;
+    background: $main-color;
+    width: 4rem;
+    height: 4rem;
+    top: 4rem;
+    right: 5rem;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.label-for-checkbox {
+    z-index: 29;
+    background: #fff;
+    top: 3rem;
+    right: 4rem;
+    width: 6rem;
+    height: 6rem;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+    span {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 3rem;
+        height: 0.2rem;
+        background: $main-color;
+        opacity: 1;
+        transition: all 0.3s;
+
+        &::after,
+        &::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: $main-color;
+        }
+        &::before {
+            transform: translateY(-0.8rem);
+            transition: all 0.3s;
+        }
+        &::after {
+            transform: translateY(0.8rem);
+            transition: all 0.3s;
+        }
+    }
+}
+#checkbox:checked ~ #sidebar-menu {
+    z-index: 30;
+    width: auto;
+
+    nav{
+        opacity: 1;
+        transition: opacity ease-in-out .8s .2s;
+    }
+}
+#checkbox:checked ~ label.label-for-checkbox span {
+    background: transparent;
+    &::before {
+        transform: rotate(-45deg);
+    }
+    &::after {
+        transform: rotate(45deg);
+    }
+}
+#checkbox:checked ~ .spread-bg {
+    transform: scale(80);
+}
