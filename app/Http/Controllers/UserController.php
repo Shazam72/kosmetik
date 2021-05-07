@@ -11,8 +11,6 @@ class UserController extends Controller
     {
         $categories = Category::all();
 
-        // dd($categories);
-
         return view('general.welcome')
             ->with([
                 'categories' => $categories,
@@ -46,16 +44,29 @@ class UserController extends Controller
         $product = Product::find($productID);
         if ($product == null)
             return view('general.detail')
-                ->with('error',true);
+                ->with('error', true);
 
         return view('general.detail')
             ->with([
                 'product' => $product,
-                'category' => Category::select('name')->where('id', $product->category_id),
+                'categories'=>Category::all()->toArray(),
             ]);
     }
 
-    public function search($tag){
+    public function search()
+    {
 
+        $tagArray = explode(' ', request('query'));
+        $products = [];
+        $categories = [];
+        foreach ($tagArray as  $tag) {
+            $products[] = Product::whereRaw("LOWER(`name`) LIKE ?", strtolower($tag))->get()->toArray();
+            $categories[] = Category::whereRaw("LOWER(`name`) LIKE ?", "%" . strtolower($tag) . "%")->get()->toArray();
+        }
+
+        return view('general.search')->with([
+            'products' => $products,
+            'categories' => $categories,
+        ]);
     }
 }

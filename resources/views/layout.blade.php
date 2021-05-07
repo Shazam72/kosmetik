@@ -8,12 +8,17 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fa/css/all.min.css">
     <link rel="stylesheet" href="/css/layout.css">
+    @if(auth()->check())
+    <link rel="stylesheet" href="/css/sidebar.css">
+    @endif
     @yield('styles')
     <title>@yield('page_title', 'K-osmétik')</title>
 </head>
 
 <body>
-    @yield('sidebar')
+    @if(auth()->check())
+    @include('admin.sidebar')
+    @endif
     <div class="inner-page">
         <header>
             <div class="inner-header container d-flex justify-content-between flex-wrap align-items-center">
@@ -21,8 +26,10 @@
                     <img src="/img/logo.png" alt="K-osmétik" id="logo">
                 </a>
                 <div class="search-bar position-relative">
-                    <input type="text" id="search-bar-input" class="p-y px-5" placeholder="Rechercher un produit...">
-                    <i class="fas fa-search position-absolute"></i>
+                    <form action="{{route('search')}}">
+                        <input type="text" id="search-bar-input" name="query" class="p-y px-5" placeholder="Rechercher un produit...">
+                        <button type="submit" class="bg-transparent border-0 outline-none position-absolute"><i class="fas fa-search"></i></button>
+                    </form>
                 </div>
             </div>
         </header>

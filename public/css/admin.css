@@ -44,4 +44,25 @@ section.login form {
   left: 0;
 }
 
+.card-cat {
+  height: 25rem;
+  width: 20rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.212);
+  border-radius: 2rem;
+}
+.card-cat:hover {
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.473);
+}
+
+.product .product-image {
+  width: 20rem;
+  height: auto;
+}
+
+img#preview {
+  width: 30rem;
+  height: auto;
+  display: none;
+}
+
 /*# sourceMappingURL=admin.css.map */

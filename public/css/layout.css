@@ -12,10 +12,15 @@ header .inner-header #search-bar-input::placeholder {
   font-family: "Segoe Print", sans-serif;
   font-size: 0.8em;
 }
+header .inner-header .search-bar button.position-absolute {
+  top: 40%;
+  right: 10px;
+}
+header .inner-header .search-bar button.position-absolute:focus {
+  outline: none;
+}
 header .inner-header .fa-search {
   color: #ef0393;
-  top: 50%;
-  right: 10px;
   transform: translateY(-50%);
 }
 
