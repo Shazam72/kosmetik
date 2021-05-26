@@ -49,24 +49,32 @@ class UserController extends Controller
         return view('general.detail')
             ->with([
                 'product' => $product,
-                'categories'=>Category::all()->toArray(),
+                'categories' => Category::all()->toArray(),
             ]);
     }
 
     public function search()
     {
 
-        $tagArray = explode(' ', request('query'));
         $products = [];
         $categories = [];
-        foreach ($tagArray as  $tag) {
-            $products[] = Product::whereRaw("LOWER(`name`) LIKE ?", strtolower($tag))->get()->toArray();
-            $categories[] = Category::whereRaw("LOWER(`name`) LIKE ?", "%" . strtolower($tag) . "%")->get()->toArray();
-        }
-
-        return view('general.search')->with([
+        if(request('query')==null){
+            return view('general.search')->with([
             'products' => $products,
             'categories' => $categories,
+            'queryString' => request('query')
+        ]);
+        }
+        dd(request('query'),$tagArray = explode(' ', request('query')));
+
+        foreach ($tagArray as  $tag) {
+            $products[] = Product::whereRaw("LOWER(`name`) LIKE ?", "%" . strtolower($tag) . "%")->get();
+            $categories[] = Category::whereRaw("LOWER(`name`) LIKE ?", "%" . strtolower($tag) . "%")->get()->toArray();
+        }
+        return view('general.search')->with([
+            'products' => $products[0],
+            'categories' => $categories,
+            'queryString' => $tag
         ]);
     }
 }

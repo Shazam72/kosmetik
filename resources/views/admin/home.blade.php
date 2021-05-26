@@ -20,7 +20,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" enctype="multipart/form-data" method="POST">
-                @csrf
+                    @csrf
                     <div class="modal-body d-flex flex-wrap p-5">
                         <div class="">
                             <div class="form-group my-5">
@@ -33,11 +33,11 @@
                             </div>
                             <div class="form-group my-5 d-flex">
                                 <select name="category" id="category">
-                                <option value="">Catégorie---</option>
+                                    <option value="">Catégorie---</option>
                                     @if(count($categories)!=0)
-                                        @foreach($categories as $category)
-                                            <option value="{{$category['id']}}">{{$category['name']}}</option>
-                                        @endforeach
+                                    @foreach($categories as $category)
+                                    <option value="{{$category['id']}}">{{$category['name']}}</option>
+                                    @endforeach
                                     @endif
                                 </select>
                             </div>

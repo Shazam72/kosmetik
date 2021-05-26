@@ -1,63 +1,58 @@
 @import url(/css/root.css);
 
-
-section.login{
+section.login {
     width: 100vw;
     height: 60vh;
 
-    form{
+    form {
         border-radius: 2rem;
     }
 }
 
 @import url(/css/sidebar.css);
 
-.all-products{
-
-    .cat{
-        .fa-angle-down{
-            top: .4rem;
+.all-products {
+    .cat {
+        .fa-angle-down {
+            top: 0.4rem;
         }
 
-        .product{
-    
-            img{
+        .product {
+            img {
                 width: 10rem;
                 height: auto;
             }
 
-            a{
+            a {
                 bottom: -3rem;
                 right: 1rem;
             }
         }
     }
 }
-.add-product{
-
-    button{
+.add-product {
+    button {
         left: -5rem;
         border-radius: 999px;
 
-        .fas{
-            background: #0d62Fd;
+        .fas {
+            background: #0d62fd;
             top: -1rem;
             left: 0;
         }
     }
 }
-#cat-options{
-    .categories{
-
-        .modal-btns{
+#cat-options {
+    .categories {
+        .modal-btns {
             top: 0;
             right: 0;
         }
-        button.adding-btn-field{
+        button.adding-btn-field {
             border-radius: 999px;
             width: 15rem;
-            .fas{
-                background: #0d62Fd;
+            .fas {
+                background: #0d62fd;
                 top: -1rem;
                 left: 0;
             }
@@ -71,14 +66,14 @@ section.login{
     border-radius: 2rem;
 
     &:hover {
-      box-shadow: 0 0 2rem rgba(0, 0, 0, 0.473);
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.473);
     }
 }
-.product .product-image{
+.product .product-image {
     width: 20rem;
     height: auto;
 }
-img#preview{
+img#preview {
     width: 30rem;
     height: auto;
     display: none;

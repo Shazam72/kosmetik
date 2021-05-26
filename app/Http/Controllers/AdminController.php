@@ -35,7 +35,7 @@ class AdminController extends UserController
 
         request()->validate([
             'username' => ['bail', 'required', 'string'],
-            'password' => ['required',['confirmed'], 'min:5'],
+            'password' => ['required', ['confirmed'], 'min:5'],
             'password_confirmation' => ['required'],
         ]);
 
@@ -85,38 +85,38 @@ class AdminController extends UserController
             'product_name' => ['required', 'string'],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric'],
-            'image'=>['required','image']
+            'image' => ['required', 'image']
         ]);
-        $image=request()->file('image');
-        
+        $image = request()->file('image');
+
         Product::create([
-            
-                'name' => request('product_name'),
-                'price' => request('price'),
-                'category_id' => request('category'),
-                'image'=>$image->store('images'),
-                'description' => request('description')
-            
+
+            'name' => request('product_name'),
+            'price' => request('price'),
+            'category_id' => request('category'),
+            'image' => $image->store('images'),
+            'description' => request('description')
+
         ]);
 
         return redirect()
-                ->back()
-                ->with('success', 'Ce produit a été enregistré avec succès');
+            ->back()
+            ->with('success', 'Ce produit a été enregistré avec succès');
     }
 
     public function delProduct($productID)
     {
-        if(!is_numeric($productID)){
+        if (!is_numeric($productID)) {
             return redirect()
-                    ->back()
-                    ->with('errors', 'Identifiant du produit incorrect');
+                ->back()
+                ->with('errors', 'Identifiant du produit incorrect');
         }
 
         Product::destroy($productID);
 
         return redirect()
-                ->route('admin_home')
-                ->with('success', 'Le produit a été suprimé');
+            ->route('admin_home')
+            ->with('success', 'Le produit a été suprimé');
     }
 
     public function getCategoriesInfos()
@@ -167,53 +167,54 @@ class AdminController extends UserController
             'password' => ['confirmed', 'min:5'],
         ]);
 
-        $user=User::find(auth()->user()->id);
-        $user->nom=request('nom');
-        $user->prenom=request('prenom');
-        $user->username=request('username');
-        $user->password=bcrypt(request('password'));
+        $user = User::find(auth()->user()->id);
+        $user->nom = request('nom');
+        $user->prenom = request('prenom');
+        $user->username = request('username');
+        $user->password = bcrypt(request('password'));
         $user->save();
 
         return redirect()
-                ->back()
-                ->with('success', 'Vos informations ont été mises à jour');
+            ->back()
+            ->with('success', 'Vos informations ont été mises à jour');
     }
 
     public function accountInfos()
     {
 
         return view('admin.account')->with([
-            'nom'=>auth()->user()->nom,
-            'prenom'=>auth()->user()->prenom,
-            'username'=>auth()->user()->username,
+            'nom' => auth()->user()->nom,
+            'prenom' => auth()->user()->prenom,
+            'username' => auth()->user()->username,
         ]);
     }
 
-    public function modifyProducts(){
+    public function modifyProducts()
+    {
         request()->validate([
-            "productID"=>['required'],
-            "product_name" => ['required','string'],
-            "price" => ['required','integer'],
-            "category" => ['required','integer'],
+            "productID" => ['required'],
+            "product_name" => ['required', 'string'],
+            "price" => ['required', 'integer'],
+            "category" => ['required', 'integer'],
             "description" => ['string'],
             "image" => ['image'],
         ]);
 
-        $product=Product::find(request('productID'));
-        $product->name=request('product_name');
-        $product->price=request("price");
-        $product->category=request('category');
+        $product = Product::find(request('productID'));
+        $product->name = request('product_name');
+        $product->price = request("price");
+        $product->category_id = request('category');
 
 
         if (request('image')) {
-            $product->image=request()->file('image')->store('images');
+            $product->image = request()->file('image')->store('images');
         }
         if (request('description')) {
-            $product->description=request('description');
+            $product->description = request('description');
         }
-
+        $product->save();
         return redirect()
-        ->back()
-        ->with('success', "Produit mis à jour");
+            ->back()
+            ->with('success', "Produit mis à jour");
     }
 }
